@@ -1,1 +1,9 @@
 @import 'tailwindcss';
+
+:root {
+	--header-height: 4rem;
+}
+
+@theme {
+	--color-fg: rgb(26, 26, 26);
+}

@@ -2,7 +2,7 @@
 	import { Leaf, Menu, Phone, Search } from '@lucide/svelte'
 </script>
 
-<header class="shadow-[0_.25rem_.75rem_0_rgba(0,0,0,.04)]">
+<header class="h[var(--header-height)] text-fg shadow-[0_.25rem_.75rem_0_rgba(0,0,0,.04)]">
 	<div class="container mx-auto flex justify-between py-5">
 		<div class="flex gap-5">
 			<Menu class=" h-6 w-6" />
