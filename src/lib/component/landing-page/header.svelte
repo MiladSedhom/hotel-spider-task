@@ -1,8 +1,22 @@
 <script lang="ts">
 	import { Leaf, Menu, Phone, Search } from '@lucide/svelte'
+
+	let lastScrollY = $state(0)
+	let isScrollingUp = $state(true)
 </script>
 
-<header class="h[var(--header-height)] text-fg shadow-[0_.25rem_.75rem_0_rgba(0,0,0,.04)]">
+<svelte:window
+	onscroll={e => {
+		if (window.scrollY < lastScrollY) isScrollingUp = true
+		else isScrollingUp = false
+		lastScrollY = window.scrollY
+	}}
+/>
+
+<header
+	class="h[var(--header-height)] top-0 z-50 w-full bg-white text-fg shadow-[0_.25rem_.75rem_0_rgba(0,0,0,.04)] transition-all data-[scrolling-up=true]:fixed data-[scrolling-up=true]:animate-slide-down"
+	data-scrolling-up={isScrollingUp}
+>
 	<div class="container mx-auto flex justify-between py-5">
 		<div class="flex gap-5">
 			<Menu class=" h-6 w-6" />

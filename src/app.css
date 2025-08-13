@@ -10,12 +10,22 @@
 	--color-fg: rgb(26, 26, 26);
 
 	--animate-marquee: marquee 30s linear infinite;
+	--animate-slide-down: slide-down 400ms ease-out;
+
 	@keyframes marquee {
 		0% {
 			transform: translateX(0%);
 		}
 		100% {
 			transform: translateX(-100%);
+		}
+	}
+	@keyframes slide-down {
+		0% {
+			transform: translateY(-100%);
+		}
+		100% {
+			transform: translateY(0%);
 		}
 	}
 }
