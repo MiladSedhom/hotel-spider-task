@@ -1,4 +1,5 @@
 <script lang="ts">
+	import FloatingButtons from '$lib/component/landing-page/floating-buttons.svelte'
 	import Header from '$lib/component/landing-page/header.svelte'
 	import ItsPlayTimeSection from '$lib/component/landing-page/its-play-time-section.svelte'
 	import RoomsSection from '$lib/component/landing-page/rooms-section.svelte'
@@ -9,7 +10,7 @@
 <Header />
 
 <!-- hero -->
-<section class="container mx-auto grid h-[calc(100dvh-var(--header-height))] items-center pb-35 text-fg">
+<section class="container mx-auto grid min-h-[100dvh] items-center py-35 text-fg">
 	<h1 class="flex items-center justify-between px-35">
 		<span class="text-[10rem] font-bold uppercase">stay</span>
 		<div>
@@ -101,3 +102,5 @@
 <ItsPlayTimeSection />
 
 <RoomsSection />
+
+<FloatingButtons />
