@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Header from '$lib/component/landing-page/header.svelte'
 	import ItsPlayTimeSection from '$lib/component/landing-page/its-play-time-section.svelte'
+	import RoomsSection from '$lib/component/landing-page/rooms-section.svelte'
 	import ChevronDown from '@lucide/svelte/icons/chevron-down'
 	import ChevronRight from '@lucide/svelte/icons/chevron-right'
 </script>
@@ -98,3 +99,5 @@
 </section>
 
 <ItsPlayTimeSection />
+
+<RoomsSection />
