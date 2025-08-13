@@ -12,7 +12,7 @@
 		<div>
 			<span class="text-[10rem] font-bold uppercase">play</span>
 			<p class="ms-3 -mt-12 text-[1.5rem] font-bold whitespace-pre-line uppercase">
-				Come play at Dubai’s &#10; hottest beach hotel
+				Come play at Dubai’s &#10;hottest beach hotel
 			</p>
 		</div>
 	</h1>
@@ -27,7 +27,7 @@
 	</div>
 </section>
 
-<section id="ticker" class=" h-[calc(100dvh-var(--header-height))] text-fg [animation-direction:reverse]">
+<section id="ticker" class=" text-fg [animation-direction:reverse]">
 	<ul class=" overflow-hidden">
 		<div class="flex animate-marquee">
 			{#each { length: 300 } as _}
@@ -66,7 +66,7 @@
 	class="flex flex-col items-center bg-[linear-gradient(90deg,rgba(216,154,202,1)_0%,rgba(230,219,174,1)_0%,rgba(225,202,201,1)_50%,rgba(225,156,199,1)_100%)] py-35 text-white"
 >
 	<h2 class="text-center text-[4.5rem] leading-[4.5rem] font-bold whitespace-pre-line">
-		DUBAI’S HOTTEST &#10; BEACH HOTEL
+		DUBAI’S HOTTEST &#10;BEACH HOTEL
 	</h2>
 	<p class="text-center text-[1rem] font-medium whitespace-pre-line">
 		Luxury rooms and suites. 150-m private beach. Picture perfect pools. Insta-views. Award-winning restaurants.
