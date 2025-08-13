@@ -79,13 +79,14 @@
 		<div class="my-5 flex gap-5">
 			{#each { length: 3 }}
 				<div class="flex flex-col items-center gap-4">
-					<img
-						src="https://palmjumeirah.fivehotelsandresorts.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2025/06/SEVENROOMS-BG.jpg.webp"
-						alt=""
-						width="400"
-						height="270"
-					/>
-					<p class="text-center text-[1.75rem] font-bold">PAY 3 STAY 4 OFFER</p>
+					<div class=" group h-[270px] w-100 overflow-hidden">
+						<img
+							class="h-full w-auto object-cover transition-all group-hover:scale-110"
+							src="https://palmjumeirah.fivehotelsandresorts.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2025/06/SEVENROOMS-BG.jpg.webp"
+							alt=""
+						/>
+					</div>
+					<a href="/" class="underline-hover text-center text-[1.75rem] font-bold">PAY 3 STAY 4 OFFER</a>
 				</div>
 			{/each}
 		</div>
