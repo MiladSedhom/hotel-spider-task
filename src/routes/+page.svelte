@@ -1,11 +1,13 @@
-<script>
-	import Header from '$lib/component/header.svelte'
+<script lang="ts">
+	import Header from '$lib/component/landing-page/header.svelte'
+	import ItsPlayTimeSection from '$lib/component/landing-page/its-play-time-section.svelte'
 	import ChevronDown from '@lucide/svelte/icons/chevron-down'
 	import ChevronRight from '@lucide/svelte/icons/chevron-right'
 </script>
 
 <Header />
 
+<!-- hero -->
 <section class="container mx-auto grid h-[calc(100dvh-var(--header-height))] items-center pb-35 text-fg">
 	<h1 class="flex items-center justify-between px-35">
 		<span class="text-[10rem] font-bold uppercase">stay</span>
@@ -27,6 +29,7 @@
 	</div>
 </section>
 
+<!-- ticker -->
 <section id="ticker" class=" text-fg [animation-direction:reverse]">
 	<ul class=" overflow-hidden">
 		<div class="flex animate-marquee">
@@ -62,6 +65,7 @@
 	</ul>
 </section>
 
+<!-- room offers-->
 <section
 	class="flex flex-col items-center bg-[linear-gradient(90deg,rgba(216,154,202,1)_0%,rgba(230,219,174,1)_0%,rgba(225,202,201,1)_50%,rgba(225,156,199,1)_100%)] py-35 text-white"
 >
@@ -92,3 +96,5 @@
 		</div>
 	</div>
 </section>
+
+<ItsPlayTimeSection />
