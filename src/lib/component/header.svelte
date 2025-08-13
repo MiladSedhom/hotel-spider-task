@@ -17,12 +17,12 @@
 
 		<nav>
 			<ul class="flex gap-6 font-bold uppercase">
-				<li>{@render link('/', 'room')}</li>
-				<li>{@render link('/', 'dine')}</li>
-				<li>{@render link('/', 'events')}</li>
-				<li>{@render link('/', 'relax')}</li>
-				<li>{@render link('/', 'music')}</li>
-				<li>{@render link('/', 'shop')}</li>
+				<a class="underline-hover" href="/">room</a>
+				<a class="underline-hover" href="/">dine</a>
+				<a class="underline-hover" href="/">events</a>
+				<a class="underline-hover" href="/">relax</a>
+				<a class="underline-hover" href="/">music</a>
+				<a class="underline-hover" href="/">shop</a>
 			</ul>
 		</nav>
 
@@ -33,10 +33,3 @@
 		</div>
 	</div>
 </header>
-
-{#snippet link(href: string, text: string)}
-	<a
-		class="relative after:absolute after:right-0 after:-bottom-1 after:left-0 after:h-0.5 after:origin-bottom-right after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100"
-		{href}>{text}</a
-	>
-{/snippet}
