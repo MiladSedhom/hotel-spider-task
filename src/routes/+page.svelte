@@ -15,7 +15,7 @@
 		<div>
 			<span class="text-[10rem] font-bold uppercase">play</span>
 			<p class="ms-3 -mt-12 text-[1.5rem] font-bold whitespace-pre-line uppercase">
-				Come play at Dubai’s &#10;hottest beach hotel
+				Come play at Dubai’s <br />hottest beach hotel
 			</p>
 		</div>
 	</h1>
@@ -31,12 +31,12 @@
 </section>
 
 <!-- ticker -->
-<section id="ticker" class=" text-fg [animation-direction:reverse]">
+<section id="ticker" class=" text-fg">
 	<ul class=" overflow-hidden">
-		<div class="flex animate-marquee">
+		<div class="flex animate-marquee [animation-direction:reverse]">
 			{#each { length: 300 } as _}
 				<li class="block min-w-[8rem] font-bold uppercase">
-					click play
+					come play
 					<ChevronRight class="inline h-5 w-5" />
 				</li>
 			{/each}
@@ -58,7 +58,7 @@
 		<div class="flex animate-marquee">
 			{#each { length: 300 } as _}
 				<li class="block min-w-[8rem] font-bold uppercase">
-					click play
+					come play
 					<ChevronRight class="inline h-5 w-5" />
 				</li>
 			{/each}
@@ -71,7 +71,7 @@
 	class="flex flex-col items-center bg-[linear-gradient(90deg,rgba(216,154,202,1)_0%,rgba(230,219,174,1)_0%,rgba(225,202,201,1)_50%,rgba(225,156,199,1)_100%)] py-35 text-white"
 >
 	<h2 class="text-center text-[4.5rem] leading-[4.5rem] font-bold whitespace-pre-line">
-		DUBAI’S HOTTEST &#10;BEACH HOTEL
+		DUBAI’S HOTTEST<br />BEACH HOTEL
 	</h2>
 	<p class="text-center text-[1rem] font-medium whitespace-pre-line">
 		Luxury rooms and suites. 150-m private beach. Picture perfect pools. Insta-views. Award-winning restaurants.
