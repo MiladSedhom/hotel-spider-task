@@ -21,14 +21,13 @@
 		},
 	]
 
-	let siemaContainer: HTMLDivElement
-	let siema: Siema | null = $state(null)
+	let siema = $state<Siema | null>(null)
 	let currentSlide = $state(0)
 
 	onMount(() => {
 		siema = new Siema({
-			selector: siemaContainer,
-			duration: 200,
+			selector: '#rooms-siema',
+			duration: 300,
 			easing: 'ease-out',
 			perPage: 1,
 			startIndex: 0,
@@ -51,11 +50,19 @@
 	})
 
 	function goToPrev() {
-		siema?.prev()
+		console.log('goToPrev called, siema:', siema)
+		if (siema) {
+			siema.prev()
+			console.log('prev() called, new slide:', siema.currentSlide)
+		}
 	}
 
 	function goToNext() {
-		siema?.next()
+		console.log('goToNext called, siema:', siema)
+		if (siema) {
+			siema.next()
+			console.log('next() called, new slide:', siema.currentSlide)
+		}
 	}
 </script>
 
@@ -70,7 +77,7 @@
 	</div>
 </div>
 <div class="relative">
-	<div bind:this={siemaContainer}>
+	<div id="rooms-siema">
 		{#each rooms as room, index}
 			<div class="relative">
 				<img class="h-auto w-screen" src={room.image} alt={room.title} loading="lazy" draggable={false} />
@@ -93,7 +100,7 @@
 		<button
 			class="grid size-12 cursor-pointer place-items-center bg-white/30 text-white hover:bg-white/50 disabled:opacity-50"
 			disabled={currentSlide === 0}
-			onclick={goToPrev}
+			on:click={goToPrev}
 		>
 			<ChevronLeft class="h-5 w-5" />
 		</button>
@@ -103,7 +110,7 @@
 		<button
 			class="grid size-12 cursor-pointer place-items-center bg-white/30 text-white hover:bg-white/50 disabled:opacity-50"
 			disabled={currentSlide === rooms.length - 1}
-			onclick={goToNext}
+			on:click={goToNext}
 		>
 			<ChevronRight class="h-5 w-5" />
 		</button>

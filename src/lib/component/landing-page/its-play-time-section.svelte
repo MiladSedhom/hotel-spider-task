@@ -9,13 +9,12 @@
 		video: 'https://palmjumeirah.fivehotelsandresorts.com/wp-content/uploads/2025/01/AA-1-Bohemia-Front-Video.mp4',
 	}))
 
-	let siemaContainer: HTMLDivElement
-	let siema: Siema
+	let siema = $state<Siema | null>(null)
 	let currentSlide = $state(0)
 
 	onMount(() => {
 		siema = new Siema({
-			selector: siemaContainer,
+			selector: '#its-play-time-siema',
 			duration: 300,
 			easing: 'ease-out',
 			perPage: {
@@ -31,24 +30,24 @@
 			loop: false,
 			rtl: false,
 			onInit: () => {
-				currentSlide = siema.currentSlide
+				currentSlide = siema?.currentSlide ?? 0
 			},
 			onChange: () => {
-				currentSlide = siema.currentSlide
+				currentSlide = siema?.currentSlide ?? 0
 			},
 		})
 
 		return () => {
-			siema.destroy()
+			siema?.destroy()
 		}
 	})
 
 	function goToPrev() {
-		siema.prev()
+		siema?.prev()
 	}
 
 	function goToNext() {
-		siema.next()
+		siema?.next()
 	}
 </script>
 
@@ -73,7 +72,7 @@
 		</div>
 	</div>
 
-	<div bind:this={siemaContainer} class="gap-6">
+	<div id="its-play-time-siema" class="gap-6">
 		{#each items as item}
 			<div class="flex flex-col items-center gap-5 px-3">
 				<img src={item.logo} alt="some logo" width="160" height="90" draggable={false} />
