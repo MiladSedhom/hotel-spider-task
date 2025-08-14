@@ -1,10 +1,55 @@
 <script lang="ts">
 	import { ChevronLeft, ChevronRight } from '@lucide/svelte'
+	import { onMount } from 'svelte'
+	import Siema from 'siema'
 
-	let itemsContainer = $state<HTMLDivElement | null>(null)
-	let scrollLeft = $state(0)
+	const items = Array.from({ length: 9 }, (_, i) => ({
+		id: i,
+		logo: 'https://palmjumeirah.fivehotelsandresorts.com/wp-content/uploads/2024/09/bohemia-logo.svg',
+		video: 'https://palmjumeirah.fivehotelsandresorts.com/wp-content/uploads/2025/01/AA-1-Bohemia-Front-Video.mp4',
+	}))
 
-	const SCROLL_DISTANCE = 274
+	let siemaContainer: HTMLDivElement
+	let siema: Siema
+	let currentSlide = $state(0)
+
+	onMount(() => {
+		siema = new Siema({
+			selector: siemaContainer,
+			duration: 300,
+			easing: 'ease-out',
+			perPage: {
+				1200: 4,
+				800: 3,
+				600: 2,
+				0: 1,
+			},
+			startIndex: 0,
+			draggable: true,
+			multipleDrag: true,
+			threshold: 20,
+			loop: false,
+			rtl: false,
+			onInit: () => {
+				currentSlide = siema.currentSlide
+			},
+			onChange: () => {
+				currentSlide = siema.currentSlide
+			},
+		})
+
+		return () => {
+			siema.destroy()
+		}
+	})
+
+	function goToPrev() {
+		siema.prev()
+	}
+
+	function goToNext() {
+		siema.next()
+	}
 </script>
 
 <section class="container mx-auto px-10 py-20 text-fg">
@@ -13,47 +58,26 @@
 		<div class="flex items-center gap-2">
 			<button
 				class="grid size-14 cursor-pointer place-items-center bg-[#f2f2f2] disabled:opacity-50"
-				disabled={scrollLeft === 0}
-				onclick={() => {
-					if (!itemsContainer) return
-					itemsContainer.scrollBy({
-						left: -SCROLL_DISTANCE,
-						behavior: 'smooth',
-					})
-				}}
+				disabled={currentSlide === 0}
+				onclick={goToPrev}
 			>
 				<ChevronLeft class="h-6 w-6" />
 			</button>
 			<button
-				class="grid size-14 cursor-pointer place-items-center bg-[#f2f2f2]"
-				disabled={itemsContainer && scrollLeft === itemsContainer.scrollWidth - itemsContainer.clientWidth}
-				onclick={() => {
-					if (!itemsContainer) return
-					itemsContainer.scrollBy({
-						left: SCROLL_DISTANCE,
-						behavior: 'smooth',
-					})
-				}}
+				class="grid size-14 cursor-pointer place-items-center bg-[#f2f2f2] disabled:opacity-50"
+				disabled={siema && currentSlide >= items.length - 1}
+				onclick={goToNext}
 			>
 				<ChevronRight class="h-6 w-6" />
 			</button>
 		</div>
 	</div>
 
-	<div
-		class="flex gap-6 overflow-hidden"
-		bind:this={itemsContainer}
-		onscroll={() => (scrollLeft = itemsContainer?.scrollLeft ?? 0)}
-	>
-		{#each { length: 9 }}
-			<div class="flex flex-col items-center gap-5">
-				<img
-					src="https://palmjumeirah.fivehotelsandresorts.com/wp-content/uploads/2024/09/bohemia-logo.svg"
-					alt="some logo"
-					width="160"
-					height="90"
-				/>
-				<div class="h-100 w-63.25 bg-fg"></div>
+	<div bind:this={siemaContainer} class="gap-6">
+		{#each items as item}
+			<div class="flex flex-col items-center gap-5 px-3">
+				<img src={item.logo} alt="some logo" width="160" height="90" draggable={false} />
+				<video src={item.video} autoplay loop muted class=" h-100 w-63.25 bg-fg object-cover"></video>
 			</div>
 		{/each}
 	</div>
