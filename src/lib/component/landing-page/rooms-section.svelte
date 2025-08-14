@@ -22,7 +22,7 @@
 	]
 
 	let siemaContainer: HTMLDivElement
-	let siema: Siema
+	let siema: Siema | null = $state(null)
 	let currentSlide = $state(0)
 
 	onMount(() => {
@@ -38,24 +38,24 @@
 			loop: false,
 			rtl: false,
 			onInit: () => {
-				currentSlide = siema.currentSlide
+				currentSlide = siema?.currentSlide ?? 0
 			},
 			onChange: () => {
-				currentSlide = siema.currentSlide
+				currentSlide = siema?.currentSlide ?? 0
 			},
 		})
 
 		return () => {
-			siema.destroy()
+			siema?.destroy()
 		}
 	})
 
 	function goToPrev() {
-		siema.prev()
+		siema?.prev()
 	}
 
 	function goToNext() {
-		siema.next()
+		siema?.next()
 	}
 </script>
 
@@ -69,41 +69,43 @@
 		</a>
 	</div>
 </div>
-<div bind:this={siemaContainer}>
-	{#each rooms as room, index}
-		<div class="relative">
-			<img class="w-screen h-auto" src={room.image} alt={room.title} loading="lazy" draggable={false} />
+<div class="relative">
+	<div bind:this={siemaContainer}>
+		{#each rooms as room, index}
+			<div class="relative">
+				<img class="h-auto w-screen" src={room.image} alt={room.title} loading="lazy" draggable={false} />
 
-			<div class="absolute top-20 right-25 flex items-center gap-4 font-bold text-white">
-				<button
-					class="grid size-12 cursor-pointer place-items-center bg-white/30 text-white disabled:opacity-50"
-					disabled={currentSlide === 0}
-					onclick={goToPrev}
-				>
-					<ChevronLeft class="h-5 w-5" />
-				</button>
-
-				<span>{currentSlide + 1} / {rooms.length}</span>
-
-				<button
-					class="grid size-12 cursor-pointer place-items-center bg-white/30 text-white disabled:opacity-50"
-					disabled={currentSlide === rooms.length - 1}
-					onclick={goToNext}
-				>
-					<ChevronRight class="h-5 w-5" />
-				</button>
+				<div class="absolute bottom-20 left-25 space-y-4">
+					<h4 class="text-[2.5rem] font-bold text-white uppercase">{room.title}</h4>
+					<a
+						href={room.link}
+						class="flex w-fit items-center bg-black px-4 py-2 text-[1.25rem] font-bold text-white uppercase"
+					>
+						Explore
+						<ChevronRight class="inline h-5 w-5" />
+					</a>
+				</div>
 			</div>
+		{/each}
+	</div>
 
-			<div class="absolute bottom-20 left-25 space-y-4">
-				<h4 class="text-[2.5rem] font-bold text-white uppercase">{room.title}</h4>
-				<a
-					href={room.link}
-					class="flex w-fit items-center bg-black px-4 py-2 text-[1.25rem] font-bold text-white uppercase"
-				>
-					Explore
-					<ChevronRight class="inline h-5 w-5" />
-				</a>
-			</div>
-		</div>
-	{/each}
+	<div class="absolute top-20 right-25 z-10 flex items-center gap-4 font-bold text-white">
+		<button
+			class="grid size-12 cursor-pointer place-items-center bg-white/30 text-white hover:bg-white/50 disabled:opacity-50"
+			disabled={currentSlide === 0}
+			onclick={goToPrev}
+		>
+			<ChevronLeft class="h-5 w-5" />
+		</button>
+
+		<span>{currentSlide + 1} / {rooms.length}</span>
+
+		<button
+			class="grid size-12 cursor-pointer place-items-center bg-white/30 text-white hover:bg-white/50 disabled:opacity-50"
+			disabled={currentSlide === rooms.length - 1}
+			onclick={goToNext}
+		>
+			<ChevronRight class="h-5 w-5" />
+		</button>
+	</div>
 </div>
