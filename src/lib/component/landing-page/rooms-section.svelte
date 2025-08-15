@@ -29,7 +29,11 @@
 			selector: '#rooms-siema',
 			duration: 300,
 			easing: 'ease-out',
-			perPage: 1,
+			perPage: {
+				800: 1,
+
+				0: 1.2,
+			},
 			startIndex: 0,
 			draggable: true,
 			multipleDrag: true,
@@ -66,53 +70,65 @@
 	}
 </script>
 
-<div class="flex items-center justify-between bg-black p-20 text-white">
-	<h3 class=" text-[10rem] leading-[1em] font-bold uppercase">rooms</h3>
-	<div class="flex flex-col gap-4">
-		<p class="text-[1.5rem] font-medium">Lifestyle Meets Luxury</p>
-		<a class="font-bold uppercase" href="/"
+<div
+	class="flex flex-col items-start justify-between gap-4 bg-black p-4 text-white sm:flex-row sm:items-center sm:gap-8 sm:p-8 lg:p-20"
+>
+	<h3 class="text-4xl leading-[1em] font-bold uppercase sm:text-6xl md:text-8xl lg:text-[10rem]">rooms</h3>
+	<div class="flex flex-col gap-3 sm:gap-4">
+		<p class="text-lg font-medium sm:text-xl lg:text-[1.5rem]">Lifestyle Meets Luxury</p>
+		<a class="text-sm font-bold uppercase sm:text-base" href="/"
 			>all rooms
-			<ChevronRight class="inline h-5 w-5" />
+			<ChevronRight class="inline h-4 w-4 sm:h-5 sm:w-5" />
 		</a>
 	</div>
 </div>
-<div class="relative">
+<div class="relative bg-black p-4">
 	<div id="rooms-siema">
 		{#each rooms as room, index}
-			<div class="relative">
-				<img class="h-auto w-screen" src={room.image} alt={room.title} loading="lazy" draggable={false} />
+			<div class="relative max-sm:me-4">
+				<img
+					class="h-120 w-auto object-cover md:h-auto md:w-screen"
+					src={room.image}
+					alt={room.title}
+					loading="lazy"
+					draggable={false}
+				/>
 
-				<div class="absolute bottom-20 left-25 space-y-4">
-					<h4 class="text-[2.5rem] font-bold text-white uppercase">{room.title}</h4>
+				<div
+					class="absolute bottom-4 left-4 space-y-2 sm:bottom-8 sm:left-8 sm:space-y-3 lg:bottom-20 lg:left-25 lg:space-y-4"
+				>
+					<h4 class="text-lg font-bold text-white uppercase sm:text-2xl lg:text-[2.5rem]">{room.title}</h4>
 					<a
 						href={room.link}
-						class="flex w-fit items-center bg-black px-4 py-2 text-[1.25rem] font-bold text-white uppercase"
+						class="flex w-fit items-center bg-black px-3 py-2 text-sm font-bold text-white uppercase sm:px-4 sm:text-base lg:text-[1.25rem]"
 					>
 						Explore
-						<ChevronRight class="inline h-5 w-5" />
+						<ChevronRight class="inline h-4 w-4 sm:h-5 sm:w-5" />
 					</a>
 				</div>
 			</div>
 		{/each}
 	</div>
 
-	<div class="absolute top-20 right-25 z-10 flex items-center gap-4 font-bold text-white">
+	<div
+		class="top-4 right-4 z-10 flex items-center justify-center gap-2 font-bold text-white max-md:mt-4 sm:top-8 sm:right-8 sm:gap-3 md:absolute lg:top-20 lg:right-25 lg:gap-4"
+	>
 		<button
-			class="grid size-12 cursor-pointer place-items-center bg-white/30 text-white hover:bg-white/50 disabled:opacity-50"
+			class="grid size-10 cursor-pointer place-items-center bg-white/30 text-white hover:bg-white/50 disabled:opacity-50 sm:size-12"
 			disabled={currentSlide === 0}
-			on:click={goToPrev}
+			onclick={goToPrev}
 		>
-			<ChevronLeft class="h-5 w-5" />
+			<ChevronLeft class="h-4 w-4 sm:h-5 sm:w-5" />
 		</button>
 
-		<span>{currentSlide + 1} / {rooms.length}</span>
+		<span class="text-sm sm:text-base">{currentSlide + 1} / {rooms.length}</span>
 
 		<button
-			class="grid size-12 cursor-pointer place-items-center bg-white/30 text-white hover:bg-white/50 disabled:opacity-50"
+			class="grid size-10 cursor-pointer place-items-center bg-white/30 text-white hover:bg-white/50 disabled:opacity-50 sm:size-12"
 			disabled={currentSlide === rooms.length - 1}
-			on:click={goToNext}
+			onclick={goToNext}
 		>
-			<ChevronRight class="h-5 w-5" />
+			<ChevronRight class="h-4 w-4 sm:h-5 sm:w-5" />
 		</button>
 	</div>
 </div>

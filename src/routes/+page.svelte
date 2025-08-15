@@ -115,16 +115,15 @@
 </main>
 
 <footer class="sticky bottom-0 -z-10 flex h-screen flex-col items-center justify-center bg-white p-4 text-fg">
-	<h1 class="text-center text-4xl leading-[1em] font-black sm:text-6xl md:text-8xl lg:text-[9.5rem]">
-		COME PLAY FIVE
-	</h1>
-	<h1 class="text-center text-4xl leading-[1em] font-black sm:text-6xl md:text-8xl lg:text-[9.5rem]">
-		COME PLAY FIVE
-	</h1>
-	<h1 class="text-center text-4xl leading-[1em] font-black sm:text-6xl md:text-8xl lg:text-[9.5rem]">
-		COME PLAY FIVE
-	</h1>
-	<h1 class="text-center text-4xl leading-[1em] font-black sm:text-6xl md:text-8xl lg:text-[9.5rem]">
-		COME PLAY FIVE
-	</h1>
+	<h1 class="text-center text-[3.25rem] leading-[1em] font-black lg:text-[9.5rem]">COME PLAY FIVE</h1>
+	<h1 class="text-center text-[3.25rem] leading-[1em] font-black lg:text-[9.5rem]">COME PLAY FIVE</h1>
+	<h1 class="text-center text-[3.25rem] leading-[1em] font-black lg:text-[9.5rem]">COME PLAY FIVE</h1>
+	<h1 class="text-center text-[3.25rem] leading-[1em] font-black lg:text-[9.5rem]">COME PLAY FIVE</h1>
+
+	<h1 class=" text-center text-[3.25rem] leading-[1em] font-black md:hidden lg:text-[9.5rem]">COME PLAY FIVE</h1>
+	<h1 class=" text-center text-[3.25rem] leading-[1em] font-black md:hidden lg:text-[9.5rem]">COME PLAY FIVE</h1>
+	<h1 class=" text-center text-[3.25rem] leading-[1em] font-black md:hidden lg:text-[9.5rem]">COME PLAY FIVE</h1>
+	<h1 class=" text-center text-[3.25rem] leading-[1em] font-black md:hidden lg:text-[9.5rem]">COME PLAY FIVE</h1>
+	<h1 class=" text-center text-[3.25rem] leading-[1em] font-black md:hidden lg:text-[9.5rem]">COME PLAY FIVE</h1>
+	<h1 class=" text-center text-[3.25rem] leading-[1em] font-black md:hidden lg:text-[9.5rem]">COME PLAY FIVE</h1>
 </footer>
