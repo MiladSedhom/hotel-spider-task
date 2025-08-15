@@ -21,7 +21,7 @@
 				1200: 4,
 				800: 3,
 				600: 2,
-				0: 1,
+				0: 2.1,
 			},
 			startIndex: 0,
 			draggable: true,
@@ -51,45 +51,62 @@
 	}
 </script>
 
-<section class="container mx-auto px-10 py-20 text-fg">
-	<div class="flex justify-between">
-		<h3 class=" text-[3rem] font-bold uppercase">it’s playtime</h3>
+<section class="container mx-auto px-4 py-8 text-fg sm:px-6 sm:py-12 lg:px-10 lg:py-20">
+	<div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+		<h3 class="text-2xl font-bold uppercase sm:text-3xl lg:text-[3rem]">it's playtime</h3>
 		<div class="flex items-center gap-2">
 			<button
-				class="grid size-14 cursor-pointer place-items-center bg-[#f2f2f2] disabled:opacity-50"
+				class="grid size-12 cursor-pointer place-items-center bg-[#f2f2f2] disabled:opacity-50 sm:size-14"
 				disabled={currentSlide === 0}
 				onclick={goToPrev}
 			>
-				<ChevronLeft class="h-6 w-6" />
+				<ChevronLeft class="h-5 w-5 sm:h-6 sm:w-6" />
 			</button>
 			<button
-				class="grid size-14 cursor-pointer place-items-center bg-[#f2f2f2] disabled:opacity-50"
+				class="grid size-12 cursor-pointer place-items-center bg-[#f2f2f2] disabled:opacity-50 sm:size-14"
 				disabled={siema && currentSlide >= items.length - 1}
 				onclick={goToNext}
 			>
-				<ChevronRight class="h-6 w-6" />
+				<ChevronRight class="h-5 w-5 sm:h-6 sm:w-6" />
 			</button>
 		</div>
 	</div>
 
-	<div id="its-play-time-siema" class="gap-6">
+	<div id="its-play-time-siema" class="gap-3 lg:gap-6">
 		{#each items as item}
-			<div class="flex flex-col items-center gap-5 px-3">
-				<img src={item.logo} alt="some logo" width="160" height="90" draggable={false} />
-				<video src={item.video} autoplay loop muted class=" h-100 w-63.25 bg-fg object-cover"></video>
+			<div class="flex flex-col items-center gap-3 px-2 lg:gap-5">
+				<img
+					src={item.logo}
+					alt="some logo"
+					class="h-auto w-32 lg:w-40"
+					width="160"
+					height="90"
+					draggable={false}
+				/>
+				<video
+					src={item.video}
+					autoplay
+					loop
+					muted
+					class=" aspect-video h-80 w-full bg-fg object-cover lg:h-100 lg:w-auto"
+				></video>
 			</div>
 		{/each}
 	</div>
 
-	<span class="mt-20 block h-[1px] bg-fg"></span>
+	<span class="mt-8 block h-[1px] bg-fg sm:mt-12 lg:mt-20"></span>
 
-	<div class="flex justify-between py-10">
-		<h4 class="max-w-[20ch] text-[3rem] leading-[3rem] font-bold text-wrap uppercase">A CELEBRATORY EXPERIENCE</h4>
-		<p class="max-w-[70ch] font-medium opacity-75">
+	<div class="flex flex-col justify-between gap-6 py-6 sm:py-8 lg:flex-row lg:gap-8 lg:py-10">
+		<h4
+			class="max-w-full text-2xl leading-tight font-bold text-wrap uppercase sm:text-3xl lg:max-w-[20ch] lg:text-[3rem] lg:leading-[3rem]"
+		>
+			A CELEBRATORY EXPERIENCE
+		</h4>
+		<p class="max-w-full text-sm font-medium opacity-75 sm:text-base lg:max-w-[70ch]">
 			Dubbed the Hottest Hotel in Dubai, Indulge Yourself at our Dare-to-be-Different Immersive Playground.
 			Rediscover your Senses with our nonstop entertainment lineup, award-winning dining, top nightlife,
 			industry-leading spa sanctuary, and our 150-metre private beach. Be Seen, Be Snapped, and Come Play at Palm
-			Jumeirah’s Most Talked-About Resort.
+			Jumeirah's Most Talked-About Resort.
 		</p>
 	</div>
 </section>

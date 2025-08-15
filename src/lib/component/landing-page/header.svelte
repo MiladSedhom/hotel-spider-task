@@ -33,8 +33,8 @@
 	class="h[var(--header-height)] top-0 z-50 w-full bg-white text-fg shadow-[0_.25rem_.75rem_0_rgba(0,0,0,.04)] transition-all data-[scrolling-up=true]:fixed data-[scrolling-up=true]:animate-slide-down"
 	data-scrolling-up={isScrollingUp}
 >
-	<div class="container mx-auto flex justify-between py-5">
-		<div class="flex gap-5">
+	<div class="container mx-auto flex items-center justify-between px-4 py-3 sm:py-5">
+		<div class="flex items-center gap-3 sm:gap-5">
 			<button
 				class="hamburger-menu relative flex h-6 w-6 cursor-pointer items-center justify-center"
 				aria-label="Toggle menu"
@@ -47,13 +47,14 @@
 			<img
 				src="https://palmjumeirah.fivehotelsandresorts.com/wp-content/uploads/2024/09/FPJ-new.svg"
 				alt="logo"
+				class="h-3 w-auto sm:h-4 md:h-[15px]"
 				width="259"
 				height="15"
 			/>
 		</div>
 
-		<nav class="hidden md:block">
-			<ul class="flex gap-6 font-bold uppercase">
+		<nav class="hidden lg:block">
+			<ul class="flex gap-4 font-bold uppercase text-sm xl:gap-6 xl:text-base">
 				{#each navLinks as link}
 					<a
 						class="underline-hover transition-opacity duration-300"
@@ -67,23 +68,23 @@
 			</ul>
 		</nav>
 
-		<div class="flex gap-4">
-			<Search class="h-4 w-4" />
-			<Phone class="h-4 w-4" />
-			<Leaf class="h-4 w-4 " />
+		<div class="flex gap-3 sm:gap-4">
+			<Search class="h-4 w-4 sm:h-5 sm:w-5" />
+			<Phone class="h-4 w-4 sm:h-5 sm:w-5" />
+			<Leaf class="h-4 w-4 sm:h-5 sm:w-5" />
 		</div>
 	</div>
 </header>
 
 {#if isMenuOpen}
-	<div class="fixed inset-0 z-30 flex justify-between bg-white px-20" transition:fade={{ duration: 300 }}>
+	<div class="fixed inset-0 z-30 flex flex-col lg:flex-row lg:justify-between bg-white px-4 sm:px-8 lg:px-20" transition:fade={{ duration: 300 }}>
 		<div class="flex h-full flex-col items-start justify-center">
 			<nav>
-				<ul class="space-y-8 text-start">
+				<ul class="space-y-4 sm:space-y-6 lg:space-y-8 text-start">
 					{#each navLinks as link, i (link.name)}
 						<li>
 							<a
-								class="menu-item block text-4xl font-bold uppercase transition-opacity hover:opacity-70"
+								class="menu-item block text-2xl sm:text-3xl lg:text-4xl font-bold uppercase transition-opacity hover:opacity-70"
 								href={link.href}
 								onclick={() => (isMenuOpen = false)}
 								style="--delay: {i * 0.1 + 0.2}s"
@@ -95,7 +96,7 @@
 				</ul>
 			</nav>
 		</div>
-		<div class="h-full w-100 pt-20 pb-10">
+		<div class="hidden lg:block h-full w-100 pt-20 pb-10">
 			<div class="h-full bg-fg"></div>
 		</div>
 	</div>
